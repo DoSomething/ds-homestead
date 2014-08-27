@@ -25,14 +25,14 @@ Your *one* installation of Homestead can be used to host all your Laravel (or ot
 
 ## Setup
 
-It is recommended that you set up Homestead to sit at the same level as your Laravel project directories, but will need to use a different command to `ssh` into the VM.
+It is recommended that you set up Homestead to sit at the same level as your Laravel project directories, but will need to use a different command to `ssh` into the VM (see *SSH into virtual machine*).
 
 Sample directory structure:
 
-- laravel
-  - Homestead
-  - project_1
-  - project_2
+    - laravel
+      - Homestead
+      - project_1
+      - project_2
 
 
 ### Configure Homestead.yaml file
@@ -41,14 +41,14 @@ Clone this repository to your directory of choice and copy the **Homestead.defau
 
 Edit your **Homestead.yaml** file to configure the *folders* and *sites* to map your projects to the virtual machine.
 
-Within the *yaml* file, edit the `USER_NAME_HERE` strings to your machine's user name. Run `whoami` in terminal if you're having an identity crisis, to let terminal tell you who you are.
+Within the **Homestead.yaml** file, edit the `USER_NAME_HERE` strings to your machine's user name. Run `whoami` in terminal if you're having an identity crisis, to let terminal tell you who you are.
 
 Next, edit the `LARAVEL_PROJECT_NAME_HERE` strings to the desired name for your project, and add any other projects to the *sites* section.
 
 
 ### Configure local hosts file
 
-You will also need to add the custom URLs you declared in the *sites* section to the `hosts` file on your local machine as well, which file can be found at `/etc/hosts`. Edit the file and add your project:
+You will also need to add the custom URLs you declared in the *sites* section to the **hosts** file on your local machine as well, which file can be found at `/etc/hosts`. Edit the file and add your project:
 
     127.0.0.1  project_name.dev
 
@@ -63,9 +63,26 @@ Now we can start the virtual machine by running the **up** command:
 
     $ vagrant up
 
-If you have added the domain to your `hosts` file, you can access the site via your web browser on port *8000*:
+If you have added the domain to your **hosts** file, you can access the site via your web browser on port *8000*:
   
     http://project_name.dev:8000
+
+
+### SSH into virtual machine
+
+If your Homestead directory sits at the same level as your Laravel project directories, you can `ssh` into the VM by first heading to the project directory:
+
+    $ cd path/to/laravel/project_name
+
+Then use the following command:
+
+    $ ssh vagrant@127.0.0.1 -p 2222
+
+It would be useful to save the above command to an alias for easier access:
+
+    alias vm='ssh vagrant@127.0.0.1 -p 2222'
+
+**NOTE:** There is currently an issue where the `known_host` for the Homestead setup and the Drupal setup compete with each other for attention, like a couple of spoiled children. Until we find a solution for this, you will need to delete the `known_host` that is added when starting up each environment when switching to launch the other VM.
 
 
 ***
