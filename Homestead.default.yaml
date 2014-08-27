@@ -8,10 +8,28 @@ authorize: /Users/USER_NAME_HERE/.ssh/id_rsa.pub
 keys:
     - /Users/USER_NAME_HERE/.ssh/id_rsa
 
+# map: /Users/USER_NAME_HERE/Sites/laravel 
+# Set the path to the directory containing both Homestead and any 
+# Laravel projects on your local machine. 
+# Feel free to change this to your preferred setup.
+# 
+# to: /home/vagrant/Sites
+# Set the path on the Vagrant virtual machine to the directory which 
+# reflects the projects in the mapped local directory specified.
 folders:
     - map: /Users/USER_NAME_HERE/Sites/laravel
       to: /home/vagrant/Sites
 
+
+# map: LARAVEL_PROJECT_NAME_HERE.dev
+# Set the custom URL of the project on the virtual machine, to
+# access it locally. *Remember* to add this custom URL to your
+# local machine's "/etc/hosts" file!
+# 
+# to: /home/vagrant/Sites/LARAVEL_PROJECT_NAME_HERE/public
+# Set the path where to map the custom URL on the virtual machine.
+# This path should point to the "/public" directory of the specified
+# Laravel project on the virtual machine.
 sites:
     - map: LARAVEL_PROJECT_NAME_HERE.dev
       to: /home/vagrant/Sites/LARAVEL_PROJECT_NAME_HERE/public  
