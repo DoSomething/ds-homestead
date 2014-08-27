@@ -1,0 +1,21 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 1
+
+authorize: /Users/USER_NAME_HERE/.ssh/id_rsa.pub
+
+keys:
+    - /Users/USER_NAME_HERE/.ssh/id_rsa
+
+folders:
+    - map: /Users/USER_NAME_HERE/Sites/laravel
+      to: /home/vagrant/Sites
+
+sites:
+    - map: LARAVEL_PROJECT_NAME_HERE.dev
+      to: /home/vagrant/Sites/LARAVEL_PROJECT_NAME_HERE/public  
+
+variables:
+    - key: APP_ENV
+      value: local
