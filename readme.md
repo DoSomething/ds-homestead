@@ -57,6 +57,13 @@ Make sure to restart your local apache server to pick up the new domains, using:
     $ sudo apachectl restart
 
 
+### Install Vagrant Plugin
+
+To keep the injected VirtualBox OS additions up to date in your Vagrant boxes, run this command from the root of your ds-homestead directory.
+
+    $ vagrant plugin install vagrant-vbguest
+
+
 ### Launch The Vagrant Box
 
 Now we can start the virtual machine by running the **up** command:
