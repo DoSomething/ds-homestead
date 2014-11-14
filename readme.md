@@ -89,7 +89,15 @@ It would be useful to save the above command to an alias for easier access:
 
     alias vm='ssh vagrant@127.0.0.1 -p 2222'
 
-**NOTE:** There is currently an issue where the `known_host` for the Homestead setup and the Drupal setup compete with each other for attention, like a couple of spoiled children. Until we find a solution for this, you will need to delete the `known_host` that is added when starting up each environment when switching to launch the other VM.
+
+## Troubleshooting
+
+You can also disable key checking for your local machine by adding the following lines to your **~/.ssh/config** file. This will disable these errors if you are switching between multiple Vagrant boxes on the same machine:
+
+    Host 127.0.0.1
+      StrictHostKeyChecking no
+      UserKnownHostsFile=/dev/null
+
 
 
 ***
