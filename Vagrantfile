@@ -12,4 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell", path: path + "/scripts/customizations.sh"
 
+  config.vm.provision "shell", path: path + "/scripts/mongodb.sh"
+
 end
