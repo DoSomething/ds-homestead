@@ -14,4 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "shell", path: path + "/scripts/mongodb.sh"
 
+  config.vm.network "forwarded_port", guest: 27017, host: 27017
+
 end
