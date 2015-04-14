@@ -2,9 +2,9 @@
 
 The official Laravel local development environment, tweaked for DoSomething.org developers.
 
-**Homestead** requires the use of **Virtual Box** and **Vagrant**. The current version of Homestead has been built and tested using version 1.6 of Vagrant, but still works great on **version 1.5.4**, which is the required version used for the DoSomething.org Drupal site.
+**Homestead** requires the use of **Virtual Box** and **Vagrant**. The current version of Homestead has been built and tested using version 1.7.2 of Vagrant.
 
-If you haven't already, download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/download-archive/v1.5.4.html).
+If you haven't already, download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
 
 Homestead includes:
 
@@ -52,11 +52,6 @@ You will also need to add the custom URLs you declared in the *sites* section to
 
     127.0.0.1  project_name.dev
 
-Make sure to restart your local apache server to pick up the new domains, using:
-
-    $ sudo apachectl restart
-
-
 ### Install Vagrant Plugin
 
 To keep the injected VirtualBox OS additions up to date in your Vagrant boxes, run this command from the root of your ds-homestead directory.
@@ -71,7 +66,7 @@ Now we can start the virtual machine by running the **up** command:
     $ vagrant up
 
 If you have added the domain to your **hosts** file, you can access the site via your web browser on port *8000*:
-  
+
     http://project_name.dev:8000
 
 
@@ -83,11 +78,11 @@ If your Homestead directory sits at the same level as your Laravel project direc
 
 Then use the following command:
 
-    $ ssh vagrant@127.0.0.1 -p 2222
+    $ vagrant ssh
 
 It would be useful to save the above command to an alias for easier access:
 
-    alias vm='ssh vagrant@127.0.0.1 -p 2222'
+    alias vs='vagrant ssh'
 
 
 ## Troubleshooting
@@ -97,7 +92,6 @@ You can also disable key checking for your local machine by adding the following
     Host 127.0.0.1
       StrictHostKeyChecking no
       UserKnownHostsFile=/dev/null
-
 
 
 ***
