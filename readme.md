@@ -54,7 +54,7 @@ You will also need to add the custom URLs you declared in the *sites* section to
 
 Make sure to restart your local apache server to pick up the new domains, using:
 
-    $ sudo apachectl restart
+    $ sudo service nginx restart
 
 
 ### Install Vagrant Plugin
@@ -70,9 +70,9 @@ Now we can start the virtual machine by running the **up** command:
 
     $ vagrant up
 
-If you have added the domain to your **hosts** file, you can access the site via your web browser on port *8000*:
-  
-    http://project_name.dev:8000
+If you have added the domain to your **hosts** file, you can access the site via your web browser on port:
+
+    http://project_name.dev
 
 
 ### SSH into virtual machine
@@ -83,11 +83,11 @@ If your Homestead directory sits at the same level as your Laravel project direc
 
 Then use the following command:
 
-    $ ssh vagrant@127.0.0.1 -p 2222
+    $ vagrant ssh
 
 It would be useful to save the above command to an alias for easier access:
 
-    alias vm='ssh vagrant@127.0.0.1 -p 2222'
+    alias vs='vagrant ssh'
 
 
 ## Troubleshooting
@@ -97,7 +97,6 @@ You can also disable key checking for your local machine by adding the following
     Host 127.0.0.1
       StrictHostKeyChecking no
       UserKnownHostsFile=/dev/null
-
 
 
 ***
