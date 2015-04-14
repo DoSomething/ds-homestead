@@ -52,11 +52,6 @@ You will also need to add the custom URLs you declared in the *sites* section to
 
     127.0.0.1  project_name.dev
 
-Make sure to restart your local apache server to pick up the new domains, using:
-
-    $ sudo service nginx restart
-
-
 ### Install Vagrant Plugin
 
 To keep the injected VirtualBox OS additions up to date in your Vagrant boxes, run this command from the root of your ds-homestead directory.
@@ -70,9 +65,9 @@ Now we can start the virtual machine by running the **up** command:
 
     $ vagrant up
 
-If you have added the domain to your **hosts** file, you can access the site via your web browser on port:
+If you have added the domain to your **hosts** file, you can access the site via your web browser on port *8000*:
 
-    http://project_name.dev
+    http://project_name.dev:8000
 
 
 ### SSH into virtual machine
