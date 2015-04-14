@@ -2,9 +2,9 @@
 
 The official Laravel local development environment, tweaked for DoSomething.org developers.
 
-**Homestead** requires the use of **Virtual Box** and **Vagrant**. The current version of Homestead has been built and tested using version 1.6 of Vagrant, but still works great on **version 1.5.4**, which is the required version used for the DoSomething.org Drupal site.
+**Homestead** requires the use of **Virtual Box** and **Vagrant**. The current version of Homestead has been built and tested using version 1.7.2 of Vagrant.
 
-If you haven't already, download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/download-archive/v1.5.4.html).
+If you haven't already, download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](https://www.vagrantup.com/downloads.html).
 
 Homestead includes:
 
