@@ -80,9 +80,13 @@ Then use the following command:
 
     $ vagrant ssh
 
+If you want to log into VM from folders other than the project folder, use:
+
+    $ ssh vagrant@127.0.0.1 -p 2222
+
 It would be useful to save the above command to an alias for easier access:
 
-    alias vs='vagrant ssh'
+    alias vm='ssh vagrant@127.0.0.1 -p 2222'
 
 
 ## Troubleshooting
