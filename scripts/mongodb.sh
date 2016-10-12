@@ -26,16 +26,16 @@ PHP_IS_INSTALLED=$?
 
 if [ $PHP_IS_INSTALLED -eq 0 ]; then
     # install dependencies
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install php-pear php7.0-dev pkg-config
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install php-pear php7.0-dev pkg-config php7.0-mongo
 
     # install php extencion
     sudo pecl install mongo
     sudo pecl install mongodb
 
     # add extencion file and restart service
+    echo 'extension=mongo.so' | sudo tee /etc/php/7.0/mods-available/mongo.ini
+
     echo 'extension=mongodb.so' | sudo tee /etc/php/7.0/mods-available/mongodb.ini
 
-    ln -s /etc/php/7.0/mods-available/mongodb.ini /etc/php/7.0/fpm/conf.d/mongodb.ini
-    ln -s /etc/php/7.0/mods-available/mongodb.ini /etc/php/7.0/cli/conf.d/mongodb.ini
     sudo service php7.0-fpm restart
 fi
