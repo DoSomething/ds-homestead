@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   Homestead.configure(config, YAML::load(File.read(path + '/Homestead.yaml')))
 
-  config.vm.box_version	= "0.3.0"
+  config.vm.box_version	= "0.4.4"
 
   config.vm.provision "shell", path: path + "/scripts/customizations.sh"
 
