@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-echo ">>> Installing MongoDB"
+# Updated MySQL key
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5
 
+echo ">>> Installing MongoDB"
 # Get key and add MongoDB 3.2.x to sources
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
@@ -11,7 +13,7 @@ sudo apt-get update
 
 # Install MongoDB
 # -qq implies -y --force-yes
-sudo apt-get install -qq mongodb-org
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install -qq mongodb-org
 
 # Make MongoDB connectable from outside world without SSH tunnel
 if [ $1 == "true" ]; then
@@ -26,7 +28,7 @@ PHP_IS_INSTALLED=$?
 
 if [ $PHP_IS_INSTALLED -eq 0 ]; then
     # install dependencies
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install php-pear php7.0-dev pkg-config php7.0-mongo
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php-pear php7.0-dev pkg-config php7.0-mongo
 
     # install php extencion
     sudo pecl install mongo
